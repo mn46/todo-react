@@ -30,6 +30,14 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     setIsEditting(false);
   }
 
+  function handleEdit() {
+    setIsEditting(true);
+    const input: HTMLInputElement = document.querySelector(
+      `#todo-${todo.id}-edit`
+    )!;
+    input.value = todo.title;
+  }
+
   return (
     <div className="flex justify-between">
       {isEditting ? (
@@ -54,10 +62,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
           </div>
 
           <div className="flex gap-4">
-            <button
-              onClick={() => setIsEditting(true)}
-              className="cursor-pointer"
-            >
+            <button onClick={() => handleEdit()} className="cursor-pointer">
               <img src={EditIcon} />
             </button>
             <button className="cursor-pointer">
