@@ -38,6 +38,11 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     input.value = todo.title;
   }
 
+  function handleDelete() {
+    const filteredArray = todos.filter((item) => item.id !== todo.id);
+    setTodos(filteredArray);
+  }
+
   return (
     <div className="flex justify-between">
       {isEditting ? (
@@ -65,7 +70,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
             <button onClick={() => handleEdit()} className="cursor-pointer">
               <img src={EditIcon} />
             </button>
-            <button className="cursor-pointer">
+            <button onClick={() => handleDelete()} className="cursor-pointer">
               <img src={DeleteIcon} />
             </button>
           </div>
