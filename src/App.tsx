@@ -8,7 +8,7 @@ function App() {
   const [done, setDone] = useState<Todo[]>([]);
 
   return (
-    <div>
+    <div className="h-screen bg-gradient-to-bl from-white to-primary">
       <Todos todos={todos} setTodos={setTodos} />
     </div>
   );
