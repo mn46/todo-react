@@ -19,7 +19,7 @@ const Todos: React.FC<Props> = ({ todos, setTodos }) => {
         <h2 className="text-2xl font-semibold">TO DO</h2>
 
         {todos.map((todo) => (
-          <SingleTodo todo={todo} />
+          <SingleTodo todo={todo} todos={todos} setTodos={setTodos} />
         ))}
       </div>
 
