@@ -2,8 +2,10 @@
 
 :root {
   --primary: #58c4dc;
+  --text: #333333;
 }
 
 @theme inline {
   --color-primary: var(--primary);
+  --color-text: var(--text);
 }
