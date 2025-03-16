@@ -10,7 +10,10 @@ const Todos: React.FC<Props> = ({ todos, setTodos }) => {
   function handleAddTodo() {
     const input: HTMLInputElement = document.querySelector("#add-todo")!;
     const inputValue = input.value;
-    setTodos((prev) => [...prev, { id: prev.length + 1, title: inputValue }]);
+    setTodos((prev) => [
+      ...prev,
+      { id: prev.length + 1, title: inputValue, status: "doing" },
+    ]);
   }
 
   return (
@@ -18,9 +21,10 @@ const Todos: React.FC<Props> = ({ todos, setTodos }) => {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">TO DO</h2>
 
-        {todos.map((todo) => (
-          <SingleTodo todo={todo} todos={todos} setTodos={setTodos} />
-        ))}
+        {todos.map((todo) => {
+          if (todo.status === "doing")
+            return <SingleTodo todo={todo} todos={todos} setTodos={setTodos} />;
+        })}
       </div>
 
       <div className="grid grid-cols-[80%_1fr] gap-4">

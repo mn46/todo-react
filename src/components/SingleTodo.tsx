@@ -30,6 +30,20 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     setIsEditting(false);
   }
 
+  function handleMarkAsDone() {
+    const editedTodo = todos.find((item) => item.id === todo.id);
+
+    if (!editedTodo) return;
+
+    editedTodo.status = "done";
+
+    const newTodosList = todos.map((item) => {
+      if (item.id === editedTodo?.id) return editedTodo;
+      else return item;
+    });
+    setTodos(newTodosList);
+  }
+
   function handleEdit() {
     setIsEditting(true);
     const input: HTMLInputElement = document.querySelector(
@@ -62,7 +76,11 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
       ) : (
         <>
           <div className="flex gap-2">
-            <input id={`todo-${todo.id}`} type="checkbox" />
+            <input
+              id={`todo-${todo.id}`}
+              type="checkbox"
+              onChange={() => handleMarkAsDone()}
+            />
             <label htmlFor={`todo-${todo.id}`}>{todo.title}</label>
           </div>
 
