@@ -10,7 +10,6 @@ function App() {
   function handleAddTodo() {
     const input: HTMLInputElement = document.querySelector(".add-todo")!;
     const inputValue = input.value;
-    console.log(inputValue);
     setTodos((prev) => [
       ...prev,
       { id: prev.length + 1, title: inputValue, status: "doing" },
