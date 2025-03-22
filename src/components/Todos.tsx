@@ -29,7 +29,7 @@ const Todos: React.FC<Props> = ({ todos, setTodos, handleAddTodo }) => {
           id="add-todo"
           type="text"
           className="p-2 rounded-full bg-white border-2 border-text"
-          onFocus={clearInput()}
+          onFocus={() => clearInput()}
         />
         <button
           onClick={() => handleAddTodo()}
