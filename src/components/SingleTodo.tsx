@@ -48,8 +48,8 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     setIsEditting(true);
     const input: HTMLInputElement = document.querySelector(
       `#todo-${todo.id}-edit`
-    )!;
-    input.value = todo.title;
+    );
+    if (input) input.value = todo.title;
   }
 
   function handleDelete() {
@@ -58,13 +58,13 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
   }
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between bg-white/80 rounded-lg py-2 px-4 w-full">
       {isEditting ? (
-        <div className="flex gap-4">
+        <div className="w-full grid grid-rows-2 md:grid-rows-1 md:grid-cols-[1fr_max-content] gap-4">
           <input
             id={`todo-${todo.id}-edit`}
             type="text"
-            className="px-2 rounded-full bg-white border-2 border-text"
+            className="px-2 py-1 w-full rounded-full bg-white border-2 border-text"
           />
           <button
             onClick={() => handleSaveTodo()}
@@ -74,7 +74,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
           </button>
         </div>
       ) : (
-        <div className="bg-white/80 rounded-lg py-2 px-4 w-full grid grid-cols-[1fr_max-content]">
+        <div className="w-full grid grid-cols-[1fr_max-content]">
           <div className="flex gap-2">
             <input
               id={`todo-${todo.id}`}
