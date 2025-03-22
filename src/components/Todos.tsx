@@ -8,6 +8,11 @@ interface Props {
 }
 
 const Todos: React.FC<Props> = ({ todos, setTodos, handleAddTodo }) => {
+  const clearInput = () => {
+    const input: HTMLInputElement = document.querySelector("#add-todo")!;
+    input.value = "";
+  };
+
   return (
     <div className="flex flex-col justify-between p-6 rounded-lg bg-white/40">
       <div className="space-y-4">
@@ -19,11 +24,12 @@ const Todos: React.FC<Props> = ({ todos, setTodos, handleAddTodo }) => {
         })}
       </div>
 
-      <div className="hidden lg:grid grid-cols-[80%_1fr] gap-4">
+      <div className="hidden lg:grid grid-cols-[80%_1fr] gap-4 mt-4">
         <input
           id="add-todo"
           type="text"
           className="p-2 rounded-full bg-white border-2 border-text"
+          onFocus={clearInput()}
         />
         <button
           onClick={() => handleAddTodo()}

@@ -17,7 +17,7 @@ function App() {
   }
 
   return (
-    <div className="h-screen overflow-auto bg-gradient-to-bl from-white to-primary p-10 lg:p-28 grid md:grid-cols-2 gap-8">
+    <div className="h-screen overflow-auto bg-gradient-to-bl from-white to-primary p-10 lg:p-28 grid lg:grid-cols-2 gap-8">
       <Todos todos={todos} setTodos={setTodos} handleAddTodo={handleAddTodo} />
       <Done todos={todos} />
       <div className="flex flex-col lg:hidden gap-4">
@@ -28,7 +28,7 @@ function App() {
         />
         <button
           onClick={() => handleAddTodo()}
-          className="bg-primary rounded-lg border-2 border-text px-2 py-1"
+          className="bg-primary rounded-lg border-2 border-text p-2 md:self-center"
         >
           Add todo
         </button>
