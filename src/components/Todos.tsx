@@ -4,18 +4,10 @@ import SingleTodo from "./SingleTodo";
 interface Props {
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  handleAddTodo: () => void;
 }
 
-const Todos: React.FC<Props> = ({ todos, setTodos }) => {
-  function handleAddTodo() {
-    const input: HTMLInputElement = document.querySelector("#add-todo")!;
-    const inputValue = input.value;
-    setTodos((prev) => [
-      ...prev,
-      { id: prev.length + 1, title: inputValue, status: "doing" },
-    ]);
-  }
-
+const Todos: React.FC<Props> = ({ todos, setTodos, handleAddTodo }) => {
   return (
     <div className="flex flex-col justify-between p-6 rounded-lg bg-white/40">
       <div className="space-y-4">
@@ -27,7 +19,7 @@ const Todos: React.FC<Props> = ({ todos, setTodos }) => {
         })}
       </div>
 
-      <div className="grid grid-cols-[80%_1fr] gap-4">
+      <div className="hidden lg:grid grid-cols-[80%_1fr] gap-4">
         <input
           id="add-todo"
           type="text"
