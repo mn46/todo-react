@@ -18,7 +18,7 @@ function App() {
   }
 
   return (
-    <div className="h-screen overflow-auto bg-gradient-to-bl from-white to-primary p-10 lg:p-28 grid lg:grid-cols-2 gap-8">
+    <div className="h-screen overflow-auto bg-gradient-to-bl from-white to-primary p-6 lg:p-28 grid lg:grid-cols-2 gap-8">
       <Todos todos={todos} setTodos={setTodos} handleAddTodo={handleAddTodo} />
       <Done todos={todos} />
       <div className="flex flex-col lg:hidden gap-4">

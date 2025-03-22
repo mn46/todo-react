@@ -74,14 +74,16 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
           </button>
         </div>
       ) : (
-        <>
+        <div className="bg-white/80 rounded-lg py-2 px-4 w-full grid grid-cols-[1fr_max-content]">
           <div className="flex gap-2">
             <input
               id={`todo-${todo.id}`}
               type="checkbox"
               onChange={() => handleMarkAsDone()}
             />
-            <label htmlFor={`todo-${todo.id}`}>{todo.title}</label>
+            <label htmlFor={`todo-${todo.id}`} className="break-all">
+              {todo.title}
+            </label>
           </div>
 
           <div className="flex gap-4">
@@ -92,7 +94,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
               <img src={DeleteIcon} />
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
