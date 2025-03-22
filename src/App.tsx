@@ -8,8 +8,9 @@ function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   function handleAddTodo() {
-    const input: HTMLInputElement = document.querySelector("#add-todo")!;
+    const input: HTMLInputElement = document.querySelector(".add-todo")!;
     const inputValue = input.value;
+    console.log(inputValue);
     setTodos((prev) => [
       ...prev,
       { id: prev.length + 1, title: inputValue, status: "doing" },
@@ -24,7 +25,7 @@ function App() {
         <input
           id="add-todo"
           type="text"
-          className="p-2 rounded-full bg-white border-2 border-text"
+          className="add-todo p-2 rounded-full bg-white border-2 border-text"
         />
         <button
           onClick={() => handleAddTodo()}
