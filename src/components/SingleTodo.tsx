@@ -70,6 +70,10 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
             id={`todo-${todo.id}-edit`}
             type="text"
             className="px-2 py-1 w-full rounded-full bg-white border-2 border-text"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSaveTodo();
+            }}
+            autoFocus
           />
           <button
             onClick={() => handleSaveTodo()}

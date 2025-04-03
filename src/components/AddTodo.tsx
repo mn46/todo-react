@@ -15,6 +15,9 @@ const AddTodo: React.FC<Props> = ({ handleAddTodo }) => {
         type="text"
         className="add-todo p-2 rounded-full bg-white border-2 border-text"
         onFocus={() => clearInput()}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") handleAddTodo();
+        }}
       />
       <button
         onClick={() => handleAddTodo()}
