@@ -3,6 +3,7 @@ import "./App.css";
 import { Todo } from "./types";
 import Todos from "./components/Todos";
 import Done from "./components/Done";
+import AddTodo from "./components/AddTodo";
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -21,17 +22,7 @@ function App() {
       <Todos todos={todos} setTodos={setTodos} handleAddTodo={handleAddTodo} />
       <Done todos={todos} />
       <div className="flex flex-col lg:hidden gap-4">
-        <input
-          id="add-todo"
-          type="text"
-          className="add-todo p-2 rounded-full bg-white border-2 border-text"
-        />
-        <button
-          onClick={() => handleAddTodo()}
-          className="bg-primary rounded-lg border-2 border-text p-2 md:self-center"
-        >
-          Add todo
-        </button>
+        <AddTodo handleAddTodo={handleAddTodo} />
       </div>
     </div>
   );

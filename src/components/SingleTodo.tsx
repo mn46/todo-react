@@ -1,7 +1,7 @@
 import { Todo } from "../types";
 import EditIcon from "../assets/edit.svg";
 import DeleteIcon from "../assets/delete.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   todo: Todo;
@@ -11,6 +11,15 @@ interface Props {
 
 const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
   const [isEditting, setIsEditting] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isEditting) {
+      const input: HTMLInputElement = document.querySelector(
+        `#todo-${todo.id}-edit`
+      )!;
+      input.value = todo.title;
+    }
+  }, [isEditting, todo.id, todo.title]);
 
   function handleSaveTodo() {
     const input: HTMLInputElement = document.querySelector(
@@ -46,10 +55,6 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
 
   function handleEdit() {
     setIsEditting(true);
-    const input: HTMLInputElement = document.querySelector(
-      `#todo-${todo.id}-edit`
-    );
-    if (input) input.value = todo.title;
   }
 
   function handleDelete() {
