@@ -20,7 +20,7 @@ const Todos: React.FC<Props> = ({ todos, setTodos, handleAddTodo }) => {
         })}
       </div>
 
-      <div className="hidden lg:grid grid-cols-[80%_1fr] gap-4 mt-4">
+      <div className="hidden lg:block">
         <AddTodo handleAddTodo={handleAddTodo} />
       </div>
     </div>
